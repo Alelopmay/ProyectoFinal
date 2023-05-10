@@ -90,7 +90,7 @@ public class ControlerAddSwimmer {
     }
 
     /**
-     * esta funcion es para inicializar el enum
+     * esta funcion es para inicializar el enum del genero
      */
     @FXML
     public void initialize() {
