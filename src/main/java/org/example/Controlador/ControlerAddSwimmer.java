@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import static org.example.Domain.SEX.*;
 
 /**
- *
+ * Controlador para añadir Nadadores
  */
 public class ControlerAddSwimmer {
 
