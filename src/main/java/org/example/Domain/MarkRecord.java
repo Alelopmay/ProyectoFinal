@@ -3,38 +3,38 @@ package org.example.Domain;
 import java.time.LocalDate;
 
 public class MarkRecord {
-   private swimmer Cod_Swimmer;
-   private trialSwimmer Id;
+   private Swimmer Cod_Swimmer;
+   private TrialSwimmer Id;
 
    private int ID_Marckrecord;
-   private double Time;
+   private String Time;
    private LocalDate Date;
 
-   public MarkRecord(swimmer cod_Swimmer, trialSwimmer id, int ID_Marckrecord, double time, LocalDate date) {
+   public MarkRecord(Swimmer cod_Swimmer, TrialSwimmer id, int ID_Marckrecord, String time, LocalDate date) {
       Cod_Swimmer = cod_Swimmer;
       Id = id;
       this.ID_Marckrecord = ID_Marckrecord;
       Time = time;
-      Date = date;
+      Date = LocalDate.now();
    }
 
    public MarkRecord() {
 
-   }
+    }
 
-   public swimmer getCod_Swimmer() {
+   public Swimmer getCod_Swimmer() {
       return Cod_Swimmer;
    }
 
-   public void setCod_Swimmer(swimmer cod_Swimmer) {
+   public void setCod_Swimmer(Swimmer cod_Swimmer) {
       Cod_Swimmer = cod_Swimmer;
    }
 
-   public trialSwimmer getId() {
+   public TrialSwimmer getId() {
       return Id;
    }
 
-   public void setId(trialSwimmer id) {
+   public void setId(TrialSwimmer id) {
       Id = id;
    }
 
@@ -46,11 +46,11 @@ public class MarkRecord {
       this.ID_Marckrecord = ID_Marckrecord;
    }
 
-   public double getTime() {
+   public String getTime() {
       return Time;
    }
 
-   public void setTime(double time) {
+   public void setTime(String time) {
       Time = time;
    }
 
@@ -68,7 +68,7 @@ public class MarkRecord {
               "Cod_Swimmer=" + Cod_Swimmer +
               ", Id=" + Id +
               ", ID_Marckrecord=" + ID_Marckrecord +
-              ", Time=" + Time +
+              ", Time='" + Time + '\'' +
               ", Date=" + Date +
               '}';
    }

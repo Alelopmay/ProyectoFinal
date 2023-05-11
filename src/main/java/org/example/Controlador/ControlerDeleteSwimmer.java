@@ -5,7 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.example.App;
-import org.example.Domain.swimmer;
+import org.example.Domain.Swimmer;
 import org.example.dao.SwimmerDAO;
 
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class ControlerDeleteSwimmer {
     private void DeleteSwimmer() {
         int cod_Swimmer = Integer.parseInt(IntCod_Swimmer.getText());
         try {
-            swimmer swimmerToDelete = SDAO.findById(cod_Swimmer);
+            Swimmer swimmerToDelete = SDAO.findById(cod_Swimmer);
             if (swimmerToDelete != null) {
                 //mensage de dato eliminado de manera correcta
                 SDAO.delete(swimmerToDelete);

@@ -13,9 +13,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerShowSwimmer">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerShowTrial">
     <children>
-        <ImageView fitHeight="638.0" fitWidth="944.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="629.0" fitWidth="944.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../fotos/pruebasnatacion.jpg" />
             </image></ImageView>
@@ -34,26 +34,26 @@
 
                     </image>
                 </ImageView>
-                <TableView fx:id="searchField" layoutX="18.0" layoutY="11.0" prefHeight="495.0" prefWidth="643.0">
+                <TableView fx:id="TrialTableView" layoutX="18.0" layoutY="11.0" prefHeight="495.0" prefWidth="643.0">
                     <columns>
-                        <TableColumn prefWidth="52.800018310546875" text="Id" />
-                        <TableColumn prefWidth="132.80001831054688" text="Categoria" />
-                        <TableColumn prefWidth="90.39996337890625" text="estilos" />
-                        <TableColumn prefWidth="113.60003662109375" text="typo_piscina" />
-                        <TableColumn prefWidth="119.20001220703125" text="Meters" />
-                        <TableColumn prefWidth="138.39996337890625" text="Sexo" />
+                        <TableColumn fx:id="IdColumn" prefWidth="52.800018310546875" text="Id" />
+                        <TableColumn fx:id="CategoryColumn" prefWidth="132.80001831054688" text="Categoria" />
+                        <TableColumn fx:id="StyleColumn" prefWidth="90.39996337890625" text="estilos" />
+                        <TableColumn fx:id="poolTypeColumn" prefWidth="113.60003662109375" text="tipo_piscina" />
+                        <TableColumn fx:id="MetersColumn" prefWidth="119.20001220703125" text="Metros" />
+                        <TableColumn fx:id="SexColumn" prefWidth="138.39996337890625" text="Sexo" />
                     </columns>
                 </TableView>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="-6.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="689.0" />
             </children>
         </Pane>
         <Button fx:id="ButtonExit" layoutX="30.0" layoutY="638.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="43.0" prefWidth="171.0" text="volver atras" />
-        <Button layoutX="782.0" layoutY="638.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="116.0" text="modificar" />
+        <Button fx:id="buttonModify" layoutX="782.0" layoutY="638.0" mnemonicParsing="false" onAction="#ButtonModify" prefHeight="43.0" prefWidth="116.0" text="modificar" />
         <Label layoutX="509.0" layoutY="14.0" prefHeight="31.0" prefWidth="233.0" text="BUSCADOR DE CODIGO:">
             <font>
                 <Font size="21.0" />
             </font>
         </Label>
-        <TextField fx:id="initializalook" layoutX="748.0" layoutY="17.0" onKeyTyped="#initializelook" />
+        <TextField fx:id="initializalook" layoutX="748.0" layoutY="17.0"  />
     </children>
 </AnchorPane>

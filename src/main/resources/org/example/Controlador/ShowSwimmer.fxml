@@ -19,7 +19,7 @@
          <image>
             <Image url="@../fotos/agua.jpg" />
          </image></ImageView>
-      <ImageView fitHeight="451.0" fitWidth="911.0" layoutX="21.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="474.0" fitWidth="944.0" layoutX="1.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../fotos/agua.jpg" />
          </image>
@@ -33,13 +33,13 @@
                 <Line endX="-128.0" endY="360.0" layoutX="146.0" layoutY="146.0" startX="-129.00001525878906" startY="-131.0" />
                 <Line endX="67.0" endY="133.0" layoutX="594.0" layoutY="373.0" startX="68.0999755859375" startY="-361.6000061035156" />
                 <Line endX="479.0" endY="-1.52587890625E-5" layoutX="181.0" layoutY="14.0" startX="-162.60000610351562" startY="-7.62939453125E-6" />
-                <Line endX="512.5999755859375" endY="6.103515625E-5" layoutX="148.0" layoutY="506.0" startX="-134.60000610351562" startY="6.103515625E-5" />
+                <Line endX="512.5999755859375" endY="6.103515625E-5" layoutX="148.0" layoutY="506.0" startX="-130.0" />
                 <ImageView fitHeight="91.0" fitWidth="126.0" layoutX="286.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
 
                     </image>
                 </ImageView>
-                <TableView fx:id="swimmerTableView" layoutX="18.0" layoutY="11.0" prefHeight="495.0" prefWidth="643.0">
+                <TableView fx:id="swimmerTableView" layoutX="18.0" layoutY="14.0" prefHeight="492.0" prefWidth="643.0" style="-fx-background-color: white;">
                     <columns>
                         <TableColumn fx:id="CodColumn" prefWidth="95.20001220703125" text="Cod_Nadador" />
                         <TableColumn fx:id="nameColumn" prefWidth="89.5999755859375" text="Nombre" />
@@ -59,6 +59,6 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField layoutX="748.0" layoutY="17.0" />
+      <TextField fx:id="searchField" layoutX="748.0" layoutY="17.0" />
     </children>
 </AnchorPane>

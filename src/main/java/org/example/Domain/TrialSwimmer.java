@@ -1,18 +1,18 @@
 package org.example.Domain;
 
-public class trialSwimmer extends Trial {
+public class TrialSwimmer extends Trial {
     private pool_type Pool_Type;
     private org.example.Domain.Meters Meters;
     private style Style;
 
-    public trialSwimmer(int id, SEX sex, category category, pool_type pool_Type, org.example.Domain.Meters meters, style style) {
+    public TrialSwimmer(int id, SEX sex, category category, pool_type pool_Type, org.example.Domain.Meters meters, style style) {
         super(id, sex, category);
         Pool_Type = pool_Type;
         Meters = meters;
         Style = style;
     }
 
-    public trialSwimmer() {
+    public TrialSwimmer() {
 
     }
 

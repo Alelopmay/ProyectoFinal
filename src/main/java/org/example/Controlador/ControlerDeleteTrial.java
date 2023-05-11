@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.example.App;
-import org.example.Domain.trialSwimmer;
+import org.example.Domain.TrialSwimmer;
 import org.example.dao.TrialSwimmerDAO;
 
 import java.io.IOException;
@@ -54,7 +54,7 @@ public class ControlerDeleteTrial {
 
         try {
             // mensage de dato eliminado de manera correcta
-            trialSwimmer swimmerToDelete = daot.findById(Id);
+            TrialSwimmer swimmerToDelete = daot.findById(Id);
             if (swimmerToDelete != null) {
                 daot.delete(swimmerToDelete);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

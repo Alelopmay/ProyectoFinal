@@ -1,10 +1,6 @@
 package org.example.Domain;
 
-import javafx.collections.ObservableList;
-
-import java.util.Objects;
-
-public class swimmer {
+public class Swimmer {
 
     private int Cod_Swimmer;
     private  String Name;
@@ -15,7 +11,7 @@ public class swimmer {
 
 
 
-    public swimmer(int codSwimmer, String name, String lastName, int age, SEX sex, String category) {
+    public Swimmer(int codSwimmer, String name, String lastName, int age, SEX sex, String category) {
         this.Cod_Swimmer = codSwimmer;
         this.Name = name;
         this.Last_Name = lastName;
@@ -24,7 +20,7 @@ public class swimmer {
         this.Sex = sex;
     }
 
-    public swimmer() {
+    public Swimmer() {
         super();
     }
 

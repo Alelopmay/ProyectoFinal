@@ -23,7 +23,7 @@
                 </Label>
                 <Polygon fill="#090379" layoutX="47.0" layoutY="430.0" points="-50.0, 40.0, 50.0, 40.0, -47.00001525878906, -73.60000610351562" stroke="BLACK" strokeType="INSIDE" />
                 <Polygon fill="#090379" layoutX="509.0" layoutY="429.0" points="-50.0, 40.0, 52.4000244140625, 40.60003662109375, 52.0, -71.0" stroke="BLACK" strokeType="INSIDE" />
-                <Button fx:id="boton3" layoutX="159.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonOption3" prefHeight="45.0" prefWidth="243.0" text="Revisar Datos">
+                <Button fx:id="boton3" layoutX="159.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonOption3" prefHeight="52.0" prefWidth="243.0" text="Administrar Marcas">
                     <font>
                         <Font size="21.0" />
                     </font>
