@@ -7,7 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import org.example.App;
 import org.example.Domain.SEX;
-import org.example.Domain.swimmer;
+import org.example.Domain.Swimmer;
 import org.example.dao.SwimmerDAO;
 
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class ControlerAddSwimmer {
         SEX Sex = choiceBoxSexo.getValue();
         //este es el mensage de que se a añadido correctamente
         try {
-            swimmer S = new swimmer(0,Name,Last_Name,Age,Sex,"");
+            Swimmer S = new Swimmer(0,Name,Last_Name,Age,Sex,"");
             SDAO.save(S);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Nadador introducido");

@@ -18,7 +18,7 @@ public class ControlerOptionT {
     private Button ButtonExit;
 
     @FXML
-    private Button Buttonmodify_trial;
+    private Button Buttonmodify;
     @FXML
     private void ButtonExit() throws IOException {
         App.setRoot("HOME1");

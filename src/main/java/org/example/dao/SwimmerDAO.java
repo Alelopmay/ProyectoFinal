@@ -2,7 +2,8 @@ package org.example.dao;
 
 import org.example.Conections.ConnectionMySQL;
 import org.example.Domain.SEX;
-import org.example.Domain.swimmer;
+import org.example.Domain.Swimmer;
+import org.example.Domain.TrialSwimmer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +14,9 @@ import java.util.List;
 
 
 
-public class SwimmerDAO implements DAO<swimmer> {
+public class SwimmerDAO implements DAO<Swimmer> {
 
-    private final static String FINDALL = "SELECT * from Swimmer";
+    private final static String FINDALL = "SELECT * from swimmer";
     private final static String FINBYID = "SELECT * from Swimmer WHERE Cod_Swimmer=?";
     private final static String INSERT = "INSERT INTO swimmer (Cod_Swimmer,Last_Name,Name,Category,Age,Sex) VALUES (?,?,?,?,?,?)";
     private final static String UPDATE = "UPDATE Swimmer SET Name=?, Last_Name=?, Category=?, Age=?, Sex=? WHERE Cod_Swimmer=?";
@@ -35,19 +36,20 @@ public class SwimmerDAO implements DAO<swimmer> {
 
 
     @Override
-    public List<swimmer> findAll() throws SQLException {
-        List<swimmer> result =new ArrayList<>();
-        try(PreparedStatement pst= this.conn.prepareStatement(FINDALL);){
-            try(ResultSet res = pst.executeQuery();){
-                while(res.next()){
-                    swimmer S =new swimmer();
+    public List<Swimmer> findAll() throws SQLException {
+        List<Swimmer> result = new ArrayList<>();
+        try (PreparedStatement pst = this.conn.prepareStatement(FINDALL)) {
+            try (ResultSet res = pst.executeQuery()) {
+                while (res.next()) {
+                    Swimmer S = new Swimmer();
                     S.setCod_Swimmer(res.getInt("Cod_Swimmer"));
-                    S.setCategory(res.getString("Category"));
-                    S.setAge(res.getInt("Age"));
                     S.setName(res.getString("Name"));
                     S.setLast_Name(res.getString("Last_Name"));
+                    S.setAge(res.getInt("Age"));
+                    S.setCategory(res.getString("Category"));
                     S.setSex(SEX.valueOf(res.getString("Sex").toUpperCase()));
 
+                    result.add(S); // Agregar el nadador a la lista result
                 }
             }
         }
@@ -55,21 +57,23 @@ public class SwimmerDAO implements DAO<swimmer> {
     }
 
     @Override
-    public swimmer findById(int Cod_Swimmer) throws SQLException {
-        swimmer result =new swimmer();
+    public Swimmer findById(int Cod_Swimmer) throws SQLException {
+        Swimmer result =new Swimmer();
         try {
             if (conn != null) { // verifica si la conexión no es nula
                 try(PreparedStatement pst= this.conn.prepareStatement(FINBYID);){
                     pst.setInt(1,Cod_Swimmer);
                     try(ResultSet res = pst.executeQuery();){
                         if(res.next()){
-                            result = new swimmer();
+                            result = new Swimmer();
+                            result.setCod_Swimmer(res.getInt("Cod_Swimmer"));
                             result.setName(res.getString("Name"));
+                            result.setLast_Name(res.getString("Last_Name"));
                             result.setAge(res.getInt(("Age")));
                             result.setCategory(res.getString("Category"));
-                            result.setLast_Name(res.getString("Last_Name"));
-                            result.setCod_Swimmer(res.getInt("Cod_Swimmer"));
-                            result.getSex();
+                           result.setSex(SEX.valueOf(res.getString("Sex")));
+
+
                         }
                     }
                 }
@@ -85,9 +89,9 @@ public class SwimmerDAO implements DAO<swimmer> {
 
 
     @Override
-    public swimmer save(swimmer entity) throws SQLException {
+    public Swimmer save(Swimmer entity) throws SQLException {
 
-        swimmer result=new swimmer();
+        Swimmer result=new Swimmer();
         if(entity!=null){
                     //INSERT
                     try(PreparedStatement pst= this.conn.prepareStatement(INSERT)){
@@ -119,13 +123,33 @@ public class SwimmerDAO implements DAO<swimmer> {
 
 
     @Override
-    public void delete(swimmer entity) throws SQLException {
+    public void delete(Swimmer entity) throws SQLException {
         if(entity!=null){
             try(PreparedStatement pst=this.conn.prepareStatement(DELETE)){
                 pst.setInt(1,entity.getCod_Swimmer());
                 pst.executeUpdate();
             }
         }
+    }
+    @Override
+    public Swimmer update(Swimmer entity) throws SQLException {
+        if (entity != null) {
+            try (PreparedStatement pst = this.conn.prepareStatement(UPDATE)) {
+                pst.setString(1, entity.getName());
+                pst.setString(2, entity.getLast_Name());
+                pst.setString(3, entity.getCategory());
+                pst.setInt(4, entity.getAge());
+                pst.setString(5, String.valueOf(entity.getSex()));
+                pst.setInt(6, entity.getCod_Swimmer());
+                pst.executeUpdate();
+            }
+        }
+        return entity;
+    }
+
+    @Override
+    public TrialSwimmer update(TrialSwimmer entity) throws SQLException {
+        return null;
     }
 
 

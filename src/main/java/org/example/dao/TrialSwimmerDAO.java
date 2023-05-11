@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrialSwimmerDAO  implements DAO<trialSwimmer>{
+public class TrialSwimmerDAO  implements DAO<TrialSwimmer>{
 
     private final static String FINDALL ="SELECT * from trialswimmer";
     private final static String FINDBYID ="SELECT * from trialswimmer WHERE Id=?";
@@ -28,12 +28,12 @@ public class TrialSwimmerDAO  implements DAO<trialSwimmer>{
         }
     }
     @Override
-    public List<trialSwimmer> findAll() throws SQLException {
-        List<trialSwimmer> result = new ArrayList();
+    public List<TrialSwimmer> findAll() throws SQLException {
+        List<TrialSwimmer> result = new ArrayList();
         try(PreparedStatement pst=this.conn.prepareStatement(FINDALL)){
             try(ResultSet res = pst.executeQuery()){
                 while(res.next()) {
-                    trialSwimmer T = new trialSwimmer();
+                    TrialSwimmer T = new TrialSwimmer();
                     T.setStyle(style.valueOf(style.valueOf(res.getString("Style")).toString()));
                     T.setMeters(Meters.valueOf(res.getString("Meters").toString()));
                     T.setCategory(category.valueOf(category.valueOf(res.getString("Category")).toString()));
@@ -48,13 +48,13 @@ public class TrialSwimmerDAO  implements DAO<trialSwimmer>{
     }
 
     @Override
-    public trialSwimmer findById(int Id) throws SQLException {
-        trialSwimmer result = null;
+    public TrialSwimmer findById(int Id) throws SQLException {
+        TrialSwimmer result = null;
         try(PreparedStatement pst=this.conn.prepareStatement(FINDBYID)){
             pst.setString(1, String.valueOf(Id));
             try(ResultSet res = pst.executeQuery()){
                 if(res.next()) {
-                    trialSwimmer T = new trialSwimmer();
+                    TrialSwimmer T = new TrialSwimmer();
                     T.setStyle(style.valueOf(res.getString("style").toString()));
                     T.setMeters(Meters.valueOf(res.getString("Meters").toString()));
                     T.setCategory(category.valueOf(res.getString("category").toString()));
@@ -69,8 +69,8 @@ public class TrialSwimmerDAO  implements DAO<trialSwimmer>{
     }
 
     @Override
-    public trialSwimmer save(trialSwimmer entity) throws SQLException {
-        trialSwimmer result = new trialSwimmer();
+    public TrialSwimmer save(TrialSwimmer entity) throws SQLException {
+        TrialSwimmer result = new TrialSwimmer();
         if(entity!=null) {
 
 
@@ -105,12 +105,39 @@ public class TrialSwimmerDAO  implements DAO<trialSwimmer>{
     }
 
     @Override
-    public void delete(trialSwimmer entity) throws SQLException {
+    public void delete(TrialSwimmer entity) throws SQLException {
         try (PreparedStatement pst = this.conn.prepareStatement(DELETE)) {
             pst.setInt(1, entity.getId());
             pst.executeUpdate();
         }
     }
+
+    @Override
+    public Swimmer update(Swimmer entity) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public TrialSwimmer update(TrialSwimmer entity) throws SQLException {
+        TrialSwimmer result = null;
+        if (entity != null) {
+            try (PreparedStatement pst = this.conn.prepareStatement(UPDATE)) {
+                pst.setString(1, String.valueOf(entity.getStyle()).toString());
+                pst.setInt(2, entity.getId());
+                pst.setString(3, String.valueOf(entity.getMeters()).toString());
+                pst.setString(4, String.valueOf(entity.getCategory()).toString());
+                pst.setString(5, String.valueOf(entity.getPool_Type()).toString());
+                pst.setString(6, String.valueOf(entity.getSex()).toString());
+                pst.setInt(7, entity.getId());
+
+                pst.executeUpdate();
+            }
+
+            result = entity;
+        }
+        return result;
+    }
+
 
     @Override
     public void close() throws Exception {

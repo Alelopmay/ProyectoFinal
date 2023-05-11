@@ -48,7 +48,7 @@ public class MainControler {
 
     @FXML
     private void buttonOption3 () throws IOException {
-        App.setRoot("Delete_Swimmer");
+        App.setRoot("Option_Mark");
     }
 
 }

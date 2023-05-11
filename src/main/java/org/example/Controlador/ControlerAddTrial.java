@@ -19,7 +19,7 @@ import static org.example.Domain.style.*;
 import static org.example.Domain.Meters.*;
 
 public class ControlerAddTrial {
-    App app = new App();
+
     @FXML
     private Button ButtonADD;
     @FXML
@@ -77,7 +77,7 @@ public class ControlerAddTrial {
 
         try {
             //estos es un mensage de que se ha ñadido correctamente
-            trialSwimmer TS=new trialSwimmer(0,sex,Category,PoolType,meters,Style);
+            TrialSwimmer TS=new TrialSwimmer(0,sex,Category,PoolType,meters,Style);
             TRDAO.save(TS);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("prueba Introducida");
