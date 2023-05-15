@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerAddMark">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerAddMark">
     <children>
         <ImageView fitHeight="761.0" fitWidth="1087.0" layoutX="-145.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -32,7 +32,7 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6d1dc" height="582.0" layoutX="730.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6d1dc" height="13.0" layoutX="9.0" layoutY="568.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
                 <TextField fx:id="IntCod" layoutX="428.0" layoutY="126.0" prefHeight="27.0" prefWidth="174.0" />
-                <Label layoutX="88.0" layoutY="126.0" prefHeight="27.0" prefWidth="300.0" text="Introduce Cod del nadador:" textFill="WHITE">
+                <Label layoutX="88.0" layoutY="126.0" prefHeight="27.0" prefWidth="300.0" text="Introduce cod del nadador:" textFill="WHITE">
                     <font>
                         <Font name="Berlin Sans FB Demi Bold" size="21.0" />
                     </font>
@@ -43,13 +43,13 @@
                     </font>
                 </Label>
                 <TextField fx:id="IntId" layoutX="428.0" layoutY="204.0" prefHeight="27.0" prefWidth="174.0" />
-                <Label layoutX="88.0" layoutY="278.0" prefHeight="27.0" prefWidth="300.0" text="Intriduce Tiempo  optenido:" textFill="WHITE">
+                <Label layoutX="88.0" layoutY="278.0" prefHeight="27.0" prefWidth="300.0" text="Intriduce tiempo  optenido:" textFill="WHITE">
                     <font>
                         <Font name="Berlin Sans FB Demi Bold" size="21.0" />
                     </font>
                 </Label>
                 <TextField fx:id="MarkTime" layoutX="428.0" layoutY="281.0" prefHeight="27.0" prefWidth="174.0" />
-                <Button fx:id="ButtonAdd" layoutX="296.0" layoutY="369.0" mnemonicParsing="false" onAction="#ButtonAdd" prefHeight="27.0" prefWidth="149.0" text="Introducir Nadador" />
+                <Button fx:id="ButtonAdd" layoutX="296.0" layoutY="369.0" mnemonicParsing="false" onAction="#ButtonAdd" prefHeight="27.0" prefWidth="149.0" text="Introducir Marca" />
                 <Line endX="438.39996337890625" layoutX="194.0" layoutY="88.0" startX="-112.00003051757812" />
                 <Line endX="246.39996337890625" endY="-3.89996337890625" layoutX="385.0" layoutY="427.0" startX="-305.4000244140625" startY="-3.89996337890625" />
                 <Line endX="-50.90003967285156" endY="245.60003662109375" layoutX="130.0" layoutY="178.0" startX="-48.500030517578125" startY="-89.5" />

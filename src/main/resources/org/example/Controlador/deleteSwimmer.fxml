@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #0D90D2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerDeleteSwimmer">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #0D90D2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerDeleteSwimmer">
     <children>
         <ImageView fitHeight="734.0" fitWidth="1073.0" layoutX="-146.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
             <image>

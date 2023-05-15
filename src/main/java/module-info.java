@@ -3,6 +3,7 @@ module org.example {
     requires javafx.fxml;
     requires java.xml.bind;
     requires java.sql;
+    opens org.example.Domain to javafx.base;
 
 
 

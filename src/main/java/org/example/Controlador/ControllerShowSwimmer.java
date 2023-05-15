@@ -14,11 +14,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class ControlerShowSwimmer {
+public class ControllerShowSwimmer {
     @FXML
     private Button buttonExit;
+
     @FXML
-    private Button buttonModify;
+    private Button buttonModifySwimmer;
     @FXML
     private TableView<Swimmer> swimmerTableView; // Crear una variable TableView para los nadadores
     @FXML
@@ -42,21 +43,30 @@ public class ControlerShowSwimmer {
      */
     private ObservableList<Swimmer> swimmerList = FXCollections.observableArrayList();
 
+    /**
+     * funcion para salir
+     * @throws IOException
+     */
     @FXML
     private void handleButtonExit() throws IOException {
         App.setRoot("adSw");
     }
 
+    /**
+     * esta funcion para poner los datos en la tabla de nadadores
+     */
     public void initialize() {
 
         try {
 
-            CodColumn.setCellValueFactory(new PropertyValueFactory("Cod_Nadador"));
-            nameColumn.setCellValueFactory(new PropertyValueFactory("Nombre"));
-            lastnameColumn.setCellValueFactory(new PropertyValueFactory("Apellido"));
-            ageColumn.setCellValueFactory(new PropertyValueFactory("Edad"));
-            categoryColumn.setCellValueFactory(new PropertyValueFactory("Categoria"));
-            sexColumn.setCellValueFactory(new PropertyValueFactory("Sexo"));
+            CodColumn.setCellValueFactory(new PropertyValueFactory<>("Cod_Swimmer"));
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            lastnameColumn.setCellValueFactory(new PropertyValueFactory<>("Last_Name"));
+            ageColumn.setCellValueFactory(new PropertyValueFactory<>("Age"));
+            categoryColumn.setCellValueFactory(new PropertyValueFactory<>("Category"));
+            sexColumn.setCellValueFactory(new PropertyValueFactory<>("Sex"));
+
+
 
             SwimmerDAO SDAO= new SwimmerDAO();
             List<Swimmer> aux = SDAO.findAll();
@@ -66,7 +76,7 @@ public class ControlerShowSwimmer {
 
             swimmerTableView.setItems(swimmerList);
         } catch (SQLException e) {
-            // handle SQL exception
+           System.out.println("no puedes mostrar");
         }
     }
     @FXML
@@ -75,8 +85,35 @@ public class ControlerShowSwimmer {
     }
     @FXML
     private void ButtonModify()throws IOException {
-
+        App.setRoot("modify_swimmer");
     }
+
+    /**
+     * esta funcion es para hacer el buscador en la tabla
+     */
+    @FXML
+    private void searchSwimmer() {
+        String searchText = searchField.getText().trim();
+        if (!searchText.isEmpty()) {
+            try {
+                SwimmerDAO swimmerDAO = new SwimmerDAO();
+                List<Swimmer> searchResults = swimmerDAO.search(searchText);
+                swimmerList.setAll(searchResults);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                SwimmerDAO swimmerDAO = new SwimmerDAO();
+                List<Swimmer> allSwimmers = swimmerDAO.findAll();
+                swimmerList.setAll(allSwimmers);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
 
 

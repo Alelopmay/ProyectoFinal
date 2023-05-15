@@ -14,8 +14,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import static org.example.Domain.SEX.*;
+import static org.example.Util.Utils.*;
 
-public class ControlerModifySwimmer {
+public class ControllerModifySwimmer {
 
     @FXML
     private Button buttonModify;
@@ -60,21 +61,26 @@ public class ControlerModifySwimmer {
         SEX Sex = choiceBoxSexo.getValue();
 
         try {
-            //este el el mejage de
-             Swimmer S=new Swimmer(Cod_Swimmer,Name,Last_Name,Age,Sex,"");
-            SDAO.update(S);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Nadador Modificado");
-            alert.setHeaderText(null);
-            alert.setContentText("Nadador Modificado con exito");
-            alert.showAndWait();
+            if(ValidName(Name) && validLast_name(Last_Name) && validAge(Age) && areAllFieldsFilled()) {
+                //este el el mejage de
+                Swimmer S = new Swimmer(Cod_Swimmer, Name, Last_Name, Age, Sex, "");
+                SDAO.update(S);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Nadador Modificado");
+                alert.setHeaderText(null);
+                alert.setContentText("Nadador Modificado con exito");
+                alert.showAndWait();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error de base de datos");
+                alert.setHeaderText(null);
+                alert.setContentText("No se ha podido modificar comprueba que has metido los campos de manera correcta ");
+                alert.showAndWait();
+
+            }
 
         }catch (SQLException e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error de base de datos");
-            alert.setHeaderText(null);
-            alert.setContentText("No se pudo modificar el nadador en la base de datos.");
-            alert.showAndWait();
+
             e.printStackTrace();
 
         }
@@ -88,10 +94,27 @@ public class ControlerModifySwimmer {
         choiceBoxSexo.getItems().addAll(SEX.values());
     }
 
+    /**
+     * funcion para volver atras
+     * @throws IOException
+     */
 
     @FXML
     public void exit()throws IOException{
         App.setRoot("adSw");
     }
+
+    /**
+     *
+     * @return valida que los campos esten llenos
+     */
+    private boolean areAllFieldsFilled() {
+        return !TextName.getText().isEmpty()
+                && !TextLast_Name.getText().isEmpty()
+                && choiceBoxSexo.getValue() != null
+                && !intAge.getText().isEmpty()
+                && !CodInt.getText().isEmpty();
+    }
+
 
 }

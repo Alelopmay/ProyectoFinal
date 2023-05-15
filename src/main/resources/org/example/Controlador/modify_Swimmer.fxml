@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerModifySwimmer">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerModifySwimmer">
     <children>
       <ImageView fitHeight="691.0" fitWidth="942.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #F0FFFD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerOptionS">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #F0FFFD;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerOptionS">
    <children>
       <Pane layoutX="51.0" layoutY="149.0" prefHeight="408.0" prefWidth="849.0" style="-fx-background-color: #191E1A;">
          <children>

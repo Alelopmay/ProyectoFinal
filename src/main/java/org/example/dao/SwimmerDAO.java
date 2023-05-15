@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.Conections.ConnectionMySQL;
+import org.example.Domain.MarkRecord;
 import org.example.Domain.SEX;
 import org.example.Domain.Swimmer;
 import org.example.Domain.TrialSwimmer;
@@ -55,6 +56,7 @@ public class SwimmerDAO implements DAO<Swimmer> {
         }
         return result;
     }
+
 
     @Override
     public Swimmer findById(int Cod_Swimmer) throws SQLException {
@@ -131,7 +133,7 @@ public class SwimmerDAO implements DAO<Swimmer> {
             }
         }
     }
-    @Override
+
     public Swimmer update(Swimmer entity) throws SQLException {
         if (entity != null) {
             try (PreparedStatement pst = this.conn.prepareStatement(UPDATE)) {
@@ -146,11 +148,29 @@ public class SwimmerDAO implements DAO<Swimmer> {
         }
         return entity;
     }
-
-    @Override
-    public TrialSwimmer update(TrialSwimmer entity) throws SQLException {
-        return null;
+    public List<Swimmer> search(String searchText) throws SQLException {
+        List<Swimmer> result = new ArrayList<>();
+        try (PreparedStatement pst = this.conn.prepareStatement(FINDALL + " WHERE Cod_Swimmer = ? OR Name LIKE ?")) {
+            pst.setString(1, searchText);
+            pst.setString(2, "%" + searchText + "%");
+            try (ResultSet res = pst.executeQuery()) {
+                while (res.next()) {
+                    Swimmer S = new Swimmer();
+                    S.setCod_Swimmer(res.getInt("Cod_Swimmer"));
+                    S.setName(res.getString("Name"));
+                    S.setLast_Name(res.getString("Last_Name"));
+                    S.setAge(res.getInt("Age"));
+                    S.setCategory(res.getString("Category"));
+                    S.setSex(SEX.valueOf(res.getString("Sex").toUpperCase()));
+                    result.add(S);
+                }
+            }
+        }
+        return result;
     }
+
+
+
 
 
     @Override

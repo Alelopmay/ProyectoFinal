@@ -35,7 +35,7 @@ public class TrialSwimmerDAO  implements DAO<TrialSwimmer>{
                 while(res.next()) {
                     TrialSwimmer T = new TrialSwimmer();
                     T.setStyle(style.valueOf(style.valueOf(res.getString("Style")).toString()));
-                    T.setMeters(Meters.valueOf(res.getString("Meters").toString()));
+                    T.setMeters(Meters.valueOf(Meters.valueOf(res.getString("Meters")).toString()));
                     T.setCategory(category.valueOf(category.valueOf(res.getString("Category")).toString()));
                     T.setSex(SEX.valueOf(SEX.valueOf(res.getString("sex")).toString()));
                     T.setId(res.getInt("Id"));
@@ -112,12 +112,9 @@ public class TrialSwimmerDAO  implements DAO<TrialSwimmer>{
         }
     }
 
-    @Override
-    public Swimmer update(Swimmer entity) throws SQLException {
-        return null;
-    }
 
-    @Override
+
+
     public TrialSwimmer update(TrialSwimmer entity) throws SQLException {
         TrialSwimmer result = null;
         if (entity != null) {
@@ -137,6 +134,18 @@ public class TrialSwimmerDAO  implements DAO<TrialSwimmer>{
         }
         return result;
     }
+    public boolean doesTrialExist(int trialCode) throws SQLException {
+        try (PreparedStatement pst = this.conn.prepareStatement(FINDBYID)) {
+            pst.setInt(1, trialCode);
+            try (ResultSet res = pst.executeQuery()) {
+                return res.next();
+            }
+        }
+    }
+
+
+
+
 
 
     @Override

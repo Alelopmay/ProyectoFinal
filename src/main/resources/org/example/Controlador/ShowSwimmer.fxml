@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: witch;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerShowSwimmer">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowSwimmer">
     <children>
       <ImageView fitHeight="469.0" fitWidth="902.0" layoutX="20.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -49,16 +49,17 @@
                   <TableColumn fx:id="sexColumn" prefWidth="138.39996337890625" text="Sexo" />
                     </columns>
                 </TableView>
+
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="-6.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="689.0" />
             </children>
         </Pane>
       <Button fx:id="ButtonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="193.0" text="volver atras" />
-      <Button fx:id="buttonModify" layoutX="782.0" layoutY="628.0" mnemonicParsing="false" onAction="#initialize" prefHeight="43.0" prefWidth="116.0" text="modifycar" />
-      <Label layoutX="509.0" layoutY="14.0" prefHeight="31.0" prefWidth="233.0" text="BUSCADOR DE CODIGO:">
+      <Button fx:id="buttonModifySwimmer" layoutX="782.0" layoutY="628.0" mnemonicParsing="false" onAction="#ButtonModify" prefHeight="43.0" prefWidth="116.0" text="modifycar" />
+      <Label layoutX="366.0" layoutY="14.0" prefHeight="31.0" prefWidth="377.0" text="BUSCADOR POR EL NOMBRE O EL COD:">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="searchField" layoutX="748.0" layoutY="17.0" />
+      <TextField fx:id="searchField" layoutX="748.0" layoutY="17.0" onAction="#searchSwimmer" onKeyReleased="#searchSwimmer" />
     </children>
 </AnchorPane>

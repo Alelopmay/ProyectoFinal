@@ -16,14 +16,14 @@
         <Polygon fill="#00ff3c" layoutX="172.0" layoutY="557.0" points="-172.00001525878906, 136.0, 764.0, 136.0, -172.0, -219.0" stroke="BLACK" strokeType="INSIDE" />
         <Pane layoutX="168.0" layoutY="104.0" prefHeight="470.0" prefWidth="561.0" style="-fx-background-color: #5DADE2;">
             <children>
-                <Label alignment="CENTER" layoutX="118.0" layoutY="40.0" prefHeight="52.0" prefWidth="325.0" style="-fx-background-color: #FFFFFF;" text="Seleciona la opcion que deseas:" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                <Label alignment="CENTER" layoutX="118.0" layoutY="40.0" prefHeight="52.0" prefWidth="325.0" style="-fx-background-color: #FFFFFF;" text="Selecciona la opcion que deseas:" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
                     <font>
                         <Font name="Candara Bold" size="20.0" />
                     </font>
                 </Label>
                 <Polygon fill="#090379" layoutX="47.0" layoutY="430.0" points="-50.0, 40.0, 50.0, 40.0, -47.00001525878906, -73.60000610351562" stroke="BLACK" strokeType="INSIDE" />
                 <Polygon fill="#090379" layoutX="509.0" layoutY="429.0" points="-50.0, 40.0, 52.4000244140625, 40.60003662109375, 52.0, -71.0" stroke="BLACK" strokeType="INSIDE" />
-                <Button fx:id="boton3" layoutX="159.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonOption3" prefHeight="52.0" prefWidth="243.0" text="Administrar Marcas">
+                <Button fx:id="boton3" layoutX="147.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonOption3" prefHeight="52.0" prefWidth="263.0" text="Administrar Marcas">
                     <font>
                         <Font size="21.0" />
                     </font>
@@ -33,14 +33,15 @@
                   <Image url="@../fotos/icono.png" />
                </image>
             </ImageView>
-            <Button fx:id="Button1" layoutX="159.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonOption1" prefHeight="52.0" prefWidth="243.0" text="Administrar nadador">
+            <Button fx:id="Button1" layoutX="149.0" layoutY="151.0" mnemonicParsing="false" onAction="#buttonOption1" prefHeight="52.0" prefWidth="263.0" text="Administrar nadadores">
                <font>
                   <Font size="23.0" />
                </font></Button>
-            <Button fx:id="Button2" layoutX="159.0" layoutY="235.0" mnemonicParsing="false" onAction="#buttonOption2" prefHeight="52.0" prefWidth="243.0" text="Administrar Prueba">
+            <Button fx:id="Button2" layoutX="149.0" layoutY="235.0" mnemonicParsing="false" onAction="#buttonOption2" prefHeight="52.0" prefWidth="263.0" text="Administrar Pruebas">
                <font>
                   <Font size="22.0" />
                </font></Button>
+            <Button fx:id="Buttonexit" layoutX="224.0" layoutY="397.0" mnemonicParsing="false" onAction="#buttonOptionExit" prefHeight="34.0" prefWidth="109.0" text="volver atras" />
             </children>
         </Pane>
     </children>
