@@ -1,43 +1,63 @@
 package org.example.Util;
 
+import org.example.Domain.Swimmer;
+import org.example.dao.SwimmerDAO;
+
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utils {
+    /**
+     *
+     * @param name
+     * @return el nombre validado de manera correcta
+     */
 
     public static boolean ValidName(String name) {
         // Expresión regular para validar un nombre: solo letras y espacios, con una longitud mínima de 2 caracteres
-        String regex = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]{2,}$";
+        String regex = "^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+$";
+        ;
+
         return name.matches(regex);
     }
 
-    public static boolean validLast_name(String Last_name ) {
-        return Last_name.matches("^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+(\\s[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+)?\\s[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+$");
+    /**
+     *
+     * @param last_name
+     * @return el apellido validad de manera correcta
+     */
+    public static boolean validLast_name(String last_name) {
+        // Expresión regular para validar un apellido: solo letras y espacios, con una longitud mínima de 2 caracteres
+        String regex = "^[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+(\\s[A-Za-zñÑáéíóúÁÉÍÓÚüÜ]+)*$";
+
+        return last_name.matches(regex);
     }
+
+    /**
+     *
+     * @param age
+     * @return devuelve la edad validad pora que no se pueda poner unad edad menor a 1 o mayor a 100
+     */
     public static boolean validAge(int age) {
-        boolean isValid = false;
-        if (age>=1 && age<=100){
-            isValid=true;
-        }else {
-            isValid=false;
-        }
-            return isValid;
-    }
-    public static String stringInput() {
-
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        // Verificar que la edad no sea mayor a 100
+        return age >= 1 && age <= 100;
     }
 
-    public static void showMessage(String msg) {
-        System.out.println(msg);
-    }
-    public static int IntInput() {
+    /**
+     *
+     * @param timeString
+     * @return devuelve el tiempo validado que se ha puesto en el formato correcto
+     */
+    public static boolean validateTimeFormat(String timeString) {
+        // Expresión regular para validar el formato de tiempo: 00:00:00
+        String regex = "^([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)$";
 
-        Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
+        return timeString.matches(regex);
     }
+
+
 
 
 

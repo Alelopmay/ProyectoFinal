@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControlerShowTrial">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowTrial">
     <children>
         <ImageView fitHeight="629.0" fitWidth="944.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -54,6 +54,6 @@
                 <Font size="21.0" />
             </font>
         </Label>
-        <TextField fx:id="initializalook" layoutX="748.0" layoutY="17.0"  />
+        <TextField fx:id="searchField" layoutX="748.0" layoutY="17.0" onKeyTyped="#searchTrialSwimmers" />
     </children>
 </AnchorPane>

@@ -20,11 +20,14 @@ public class MainControler {
     private Button Button2;
     @FXML
     private Button Button3;
+    @FXML
+    private Button Buttonexit;
+
 
     @FXML
     private void ControladorP() throws IOException {
 
-        if (usuario.getText().equals("a") && pasword.getText().equals("a")) {
+        if (usuario.getText().equals("alejandro") && pasword.getText().equals("natacion")) {
             App.setRoot("HOME1");
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -36,19 +39,37 @@ public class MainControler {
         }
     }
 
+    /**
+     * funcion para ir a las opciones de natacion
+     * @throws IOException
+     */
     @FXML
     private void buttonOption1() throws IOException {
         App.setRoot("adSw");
     }
+
+    /**
+     * funcion para ir a las opciones de pruebas
+     * @throws IOException
+     */
 
     @FXML
     private void buttonOption2() throws IOException {
         App.setRoot("Option_manipulate_trial");
     }
 
+    /**
+     * funcion para ir a las opciones de las marcas
+     * @throws IOException
+     */
+
     @FXML
     private void buttonOption3 () throws IOException {
         App.setRoot("Option_Mark");
+    }
+    @FXML
+    private void buttonOptionExit () throws IOException {
+        App.setRoot("login");
     }
 
 }

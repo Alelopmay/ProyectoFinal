@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.Domain.MarkRecord;
 import org.example.Domain.Swimmer;
 import org.example.Domain.TrialSwimmer;
 
@@ -12,7 +13,5 @@ public interface DAO<T> extends AutoCloseable{
     T save(T entity) throws SQLException ;
     void delete(T entity) throws SQLException ;
 
-    Swimmer update(Swimmer entity) throws SQLException;
 
-    TrialSwimmer update(TrialSwimmer entity) throws SQLException;
 }

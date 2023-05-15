@@ -6,7 +6,7 @@ import org.example.App;
 
 import java.io.IOException;
 
-public class ControlerOptionS {
+public class ControllerOptionS {
 
     @FXML
     private Button ButtonAdd;
@@ -42,7 +42,7 @@ public class ControlerOptionS {
      */
     @FXML
     private void ButtonDelete() throws IOException {
-        App.setRoot("deleteSwimmer");
+        App.setRoot("Delete_Swimmer");
     }
 
     /**
