@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowMark">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowMark">
     <children>
         <ImageView fitHeight="469.0" fitWidth="902.0" layoutX="20.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -47,7 +39,7 @@
                 </TableView>
             </children>
         </Pane>
-        <Button fx:id="buttonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="193.0" text="volver atras" />
+        <Button fx:id="buttonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="126.0" text="volver " />
       <Pane layoutX="566.0" layoutY="46.0" prefHeight="128.0" prefWidth="329.0" style="-fx-background-color: #252222;">
          <children>
             <TextField fx:id="IntId" layoutX="253.0" layoutY="64.0" prefHeight="26.0" prefWidth="58.0" />

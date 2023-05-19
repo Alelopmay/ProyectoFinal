@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowTrial">
+<AnchorPane prefHeight="693.0" prefWidth="936.0" style="-fx-background-color: #3225FF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controlador.ControllerShowTrial">
     <children>
         <ImageView fitHeight="629.0" fitWidth="944.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -47,7 +40,7 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="-6.0" layoutY="514.0" stroke="BLACK" strokeType="INSIDE" width="689.0" />
             </children>
         </Pane>
-        <Button fx:id="ButtonExit" layoutX="30.0" layoutY="638.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="43.0" prefWidth="171.0" text="volver atras" />
+        <Button fx:id="ButtonExit" layoutX="30.0" layoutY="638.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="43.0" prefWidth="107.0" text="volver " />
         <Button fx:id="buttonModify" layoutX="782.0" layoutY="638.0" mnemonicParsing="false" onAction="#ButtonModify" prefHeight="43.0" prefWidth="116.0" text="modificar" />
         <Label layoutX="509.0" layoutY="14.0" prefHeight="31.0" prefWidth="233.0" text="BUSCADOR DE CODIGO:">
             <font>

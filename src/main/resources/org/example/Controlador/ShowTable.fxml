@@ -53,7 +53,7 @@
                 </TableView>
             </children>
         </Pane>
-        <Button fx:id="ButtonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="193.0" text="volver atras" />
+        <Button fx:id="ButtonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="116.0" text="volver " />
         <Button fx:id="ButtonAdd" layoutX="782.0" layoutY="628.0" mnemonicParsing="false" onAction="#ButonaddMark" prefHeight="43.0" prefWidth="116.0" text="Añadir Marca" />
         <Label layoutX="214.0" layoutY="14.0" prefHeight="31.0" prefWidth="533.0" text="BUSCADOR POR EL NOMBRE O EL COD DEL NADADOR:">
             <font>

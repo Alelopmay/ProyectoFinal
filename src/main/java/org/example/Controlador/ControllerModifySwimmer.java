@@ -29,84 +29,112 @@ public class ControllerModifySwimmer {
     @FXML
     private ChoiceBox<SEX> choiceBoxSexo;
     @FXML
-    private  SEX[] sex={MASCULINO,FEMENINO,NOBINARIA};
+    private SEX[] sex={MASCULINO,FEMENINO,NOBINARIA};
     @FXML
     private TextField intAge;
     @FXML
     private TextField CodInt;
 
-    /**
-     *
-     * @throws IOException
-     * este funcion acciona el modificar Nadador
-     */
-
-    @FXML
-    public void buttonModifySwimmer()throws IOException{
-       ModifySwimmer();
-    }
+    private SwimmerDAO swimmerDAO; // Agrega la referencia al DAO
 
     /**
-     * estaa funcion modifica el nadador
-     * @throws IOException
+     * Inicializa el controlador.
      */
-
-
-    private void ModifySwimmer()throws IOException {
-        SwimmerDAO SDAO=new SwimmerDAO();
-        int Cod_Swimmer= Integer.parseInt(CodInt.getText());
-        String Name=TextName.getText();
-        String Last_Name=TextLast_Name.getText();
-        int Age= Integer.parseInt(intAge.getText());
-        SEX Sex = choiceBoxSexo.getValue();
-
-        try {
-            if(ValidName(Name) && validLast_name(Last_Name) && validAge(Age) && areAllFieldsFilled()) {
-                //este el el mejage de
-                Swimmer S = new Swimmer(Cod_Swimmer, Name, Last_Name, Age, Sex, "");
-                SDAO.update(S);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Nadador Modificado");
-                alert.setHeaderText(null);
-                alert.setContentText("Nadador Modificado con exito");
-                alert.showAndWait();
-            }else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error de base de datos");
-                alert.setHeaderText(null);
-                alert.setContentText("No se ha podido modificar comprueba que has metido los campos de manera correcta ");
-                alert.showAndWait();
-
-            }
-
-        }catch (SQLException e){
-
-            e.printStackTrace();
-
-        }
-    }
-    /**
-     * esta funcion es para inicializar el enum del genero
-     */
-    @FXML
     public void initialize() {
-        // Agregar opciones de la enumeración SEX al ChoiceBox
+        swimmerDAO = new SwimmerDAO(); // Inicializa el DAO
+
+        // Agrega opciones de la enumeración SEX al ChoiceBox
         choiceBoxSexo.getItems().addAll(SEX.values());
     }
 
     /**
-     * funcion para volver atras
-     * @throws IOException
+     * Acción del botón Modificar Nadador.
      */
-
     @FXML
-    public void exit()throws IOException{
+    public void buttonModifySwimmer() throws IOException {
+        modifySwimmer();
+    }
+
+    /**
+     * Modifica el nadador.
+     */
+    private void modifySwimmer() throws IOException {
+        int codSwimmer = Integer.parseInt(CodInt.getText());
+        try {
+            Swimmer existingSwimmer = swimmerDAO.findById(codSwimmer); // Busca el nadador existente en la base de datos
+            if (existingSwimmer != null) {
+                // Rellena los campos con la información existente del nadador
+                TextName.setText(existingSwimmer.getName());
+                TextLast_Name.setText(existingSwimmer.getLast_Name());
+                intAge.setText(String.valueOf(existingSwimmer.getAge()));
+                choiceBoxSexo.setValue(existingSwimmer.getSex());
+
+                // Actualiza el nadador en la base de datos al pulsar el botón Modificar
+                buttonModify.setOnAction(event -> {
+                    try {
+                        updateSwimmer(existingSwimmer);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Nadador encontrado");
+                alert.setHeaderText(null);
+                alert.setContentText("Se encontró el nadador y se rellenaron los campos.");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("No se encontró un nadador con el código proporcionado.");
+                alert.showAndWait();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Actualiza el nadador en la base de datos.
+     */
+    private void updateSwimmer(Swimmer swimmer) throws IOException {
+        // Obtén los valores de los campos
+        String name = TextName.getText();
+        String lastName = TextLast_Name.getText();
+        int age = Integer.parseInt(intAge.getText());
+        SEX sexo = choiceBoxSexo.getValue();
+
+        // Actualiza los datos del nadador
+        swimmer.setName(name);
+        swimmer.setLast_Name(lastName);
+        swimmer.setAge(age);
+        swimmer.setSex(sexo);
+
+        try {
+            swimmerDAO.update(swimmer); // Actualiza el nadador en la base de datos
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nadador modificado");
+            alert.setHeaderText(null);
+            alert.setContentText("El nadador se ha modificado correctamente.");
+            alert.showAndWait();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Acción del botón Salir.
+     */
+    @FXML
+    public void exit() throws IOException {
         App.setRoot("adSw");
     }
 
     /**
+     * Verifica si todos los campos están llenos.
      *
-     * @return valida que los campos esten llenos
+     * @return true si todos los campos están llenos, false de lo contrario.
      */
     private boolean areAllFieldsFilled() {
         return !TextName.getText().isEmpty()
@@ -115,6 +143,5 @@ public class ControllerModifySwimmer {
                 && !intAge.getText().isEmpty()
                 && !CodInt.getText().isEmpty();
     }
-
-
 }
+

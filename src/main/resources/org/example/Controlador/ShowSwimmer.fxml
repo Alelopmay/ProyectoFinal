@@ -54,7 +54,7 @@
             </children>
         </Pane>
       <Button fx:id="ButtonExit" layoutX="31.0" layoutY="622.0" mnemonicParsing="false" onAction="#ButtonExit" prefHeight="50.0" prefWidth="193.0" text="volver atras" />
-      <Button fx:id="buttonModifySwimmer" layoutX="782.0" layoutY="628.0" mnemonicParsing="false" onAction="#ButtonModify" prefHeight="43.0" prefWidth="116.0" text="modifycar" />
+      <Button fx:id="buttonModifySwimmer" layoutX="782.0" layoutY="628.0" mnemonicParsing="false" onAction="#ButtonModify" prefHeight="43.0" prefWidth="116.0" text="modificar" />
       <Label layoutX="366.0" layoutY="14.0" prefHeight="31.0" prefWidth="377.0" text="BUSCADOR POR EL NOMBRE O EL COD:">
          <font>
             <Font size="21.0" />

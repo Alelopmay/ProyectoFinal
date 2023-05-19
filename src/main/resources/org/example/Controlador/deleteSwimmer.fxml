@@ -47,7 +47,7 @@
 
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="56.0" layoutY="182.0" prefHeight="39.0" prefWidth="565.0" text="Introduce Cod del Nadador a buscar:" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="56.0" layoutY="182.0" prefHeight="39.0" prefWidth="565.0" text="Introduce cod del nadador a buscar:" textFill="WHITE">
                     <font>
                         <Font name="Berlin Sans FB Demi Bold" size="27.0" />
                     </font>

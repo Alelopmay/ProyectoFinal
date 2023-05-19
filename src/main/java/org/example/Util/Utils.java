@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class Utils {
     /**
      *
-     * @param name
+     * @param name Nombre de el nadador
      * @return el nombre validado de manera correcta
      */
 
@@ -25,7 +25,7 @@ public class Utils {
 
     /**
      *
-     * @param last_name
+     * @param last_name apellido del deportista
      * @return el apellido validad de manera correcta
      */
     public static boolean validLast_name(String last_name) {
@@ -37,7 +37,7 @@ public class Utils {
 
     /**
      *
-     * @param age
+     * @param age edad para validar
      * @return devuelve la edad validad pora que no se pueda poner unad edad menor a 1 o mayor a 100
      */
     public static boolean validAge(int age) {
@@ -46,8 +46,8 @@ public class Utils {
     }
 
     /**
-     *
-     * @param timeString
+     * Comprueba si una cadena de tiempo tiene un formato correcto
+     * @param timeString cadena de tiempo a comprobar
      * @return devuelve el tiempo validado que se ha puesto en el formato correcto
      */
     public static boolean validateTimeFormat(String timeString) {

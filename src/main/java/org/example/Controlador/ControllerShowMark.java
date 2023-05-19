@@ -69,10 +69,10 @@ public class ControllerShowMark {
     @FXML
     private void initialize() {
         try{
-        NameColumn.setCellValueFactory(new PropertyValueFactory<>("Cod_Swimmer"));
-        CodColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        TimeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
-        DateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            NameColumn.setCellValueFactory(new PropertyValueFactory<>("Cod_Swimmer"));
+            CodColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+            TimeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+            DateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
             MarkrecordDAO MDAO=new MarkrecordDAO();
             List<MarkRecord> aux = MDAO.findAll();
